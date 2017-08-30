@@ -16,18 +16,20 @@ ActiveRecord::Schema.define(version: 20170830072242) do
   enable_extension "plpgsql"
 
   create_table "carrots", force: :cascade do |t|
-    t.bigint "user"
+    t.bigint "user_id"
     t.datetime "time"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carrots_on_user_id"
   end
 
   create_table "point_balances", force: :cascade do |t|
-    t.bigint "user"
+    t.bigint "user_id"
     t.integer "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_point_balances_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +40,6 @@ ActiveRecord::Schema.define(version: 20170830072242) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "carrots", "users"
+  add_foreign_key "point_balances", "users"
 end
