@@ -1,3 +1,0 @@
-class PointBalance < ApplicationRecord
-    
-end
