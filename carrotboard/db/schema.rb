@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901074730) do
+ActiveRecord::Schema.define(version: 20170830065816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carrots", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "time"
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,9 +27,9 @@ ActiveRecord::Schema.define(version: 20170901074730) do
     t.string "username"
     t.string "email"
     t.string "pwd"
+    t.integer "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "balance"
   end
 
   add_foreign_key "carrots", "users"

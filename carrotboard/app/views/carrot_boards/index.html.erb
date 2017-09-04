@@ -1,0 +1,21 @@
+<h1>CarrotBoards</h1>
+<p>
+  <h3><%= @user.username %>'s Carrots Board</h3>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Points</th>
+    </tr>
+    <% @PointsOfUser.each do |point|%>
+    <tr>
+      <td><%= point[0] %>
+      <td><%= point[1] %>
+    </tr>
+    <%end %>
+  </table>
+  <!-- Points submit -->
+  <%= form_tag(:controller => "carrot_boards", :action => "points_update") do %>   
+    <%= text_field_tag(:point, nil) %><br />  
+    <%= submit_tag("+") %>  
+  <% end %>
+</p>
