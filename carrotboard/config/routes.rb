@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stopnow/firealarm'
+
   get 'carrot_boards', to: 'carrot_boards#index'
   get 'carrot_boards/index'
   post 'carrot_boards/points_update'
